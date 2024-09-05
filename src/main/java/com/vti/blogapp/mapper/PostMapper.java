@@ -1,3 +1,4 @@
+
 package com.vti.blogapp.mapper;
 
 import com.vti.blogapp.dto.PostDto;
@@ -11,7 +12,7 @@ public class PostMapper {
         post.setTitle(form.getTitle());
         post.setContent(form.getContent());
         post.setDescription(form.getDescription());
-        post.setStatus(form.getStatus());
+        post.setStatus(Post.Status.valueOf(form.getStatus()));
         return post;
     }
 
@@ -24,13 +25,13 @@ public class PostMapper {
         dto.setStatus(post.getStatus());
         dto.setCreatedAt(post.getCreatedAt());
         dto.setUpdatedAt(post.getUpdatedAt());
-        return dto;
+        return dto.withSelfRel();
     }
 
     public static void map(PostUpdateForm form, Post post) {
         post.setTitle(form.getTitle());
         post.setContent(form.getContent());
         post.setDescription(form.getDescription());
-        post.setStatus(form.getStatus());
+        post.setStatus(Post.Status.valueOf(form.getStatus()));
     }
 }

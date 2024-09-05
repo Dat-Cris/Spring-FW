@@ -1,5 +1,6 @@
 package com.vti.blogapp.entity;
-//import com.vti.blogapp.converter.PostStatusConverter;
+
+import com.vti.blogapp.converter.PostStatusConverter;
 import jakarta.persistence.Column;
 import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
@@ -37,7 +38,7 @@ public class Post {
 
     @Column(name = "status", nullable = false)
     // @Enumerated(value = EnumType.STRING)
-    //@Convert(converter = PostStatusConverter.class)
+    @Convert(converter = PostStatusConverter.class)
     private Status status;
 
     @Column(name = "created_at", nullable = false, updatable = false)
